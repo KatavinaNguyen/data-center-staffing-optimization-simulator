@@ -1,0 +1,11 @@
+incident_id,timestamp,assigned_level,response_time,met_sla,priority
+1,2025-07-01 08:01:00,L1,22,True,low
+2,2025-07-01 08:04:00,L2,51,False,medium
+3,2025-07-01 08:06:00,L1,27,True,low
+4,2025-07-01 08:09:00,L3,59,True,high
+5,2025-07-01 08:14:00,L2,47,False,medium
+6,2025-07-01 08:17:00,L1,34,False,low
+7,2025-07-01 08:22:00,L2,40,True,medium
+8,2025-07-01 08:25:00,L1,19,True,low
+9,2025-07-01 08:27:00,L3,66,False,high
+10,2025-07-01 08:30:00,L1,25,True,low
