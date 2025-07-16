@@ -50,3 +50,4 @@ def log_results(csv_path='results/baseline_run.csv', plot_path='results/sla_plot
     plt.savefig(plot_path)
 
     print(f"[{datetime.now()}] Results logged to {csv_path} and {plot_path}")
+
