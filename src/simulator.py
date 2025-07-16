@@ -9,3 +9,4 @@ def run_simulation(config):
     generate_incidents(env, staff, config)
     env.run(until=config["simulation_duration"])
     log_results()
+
