@@ -1,9 +1,35 @@
-simulation_duration: 86400
-incident_rate: 0.0015
-staffing:
-  L1: 4
-  L2: 4
-  L3: 3
+# Mid-shift optimized configuration
+simulation_duration: 1440  # in minutes (24 hours)
+
 shift_schedule:
-  start: [0, 21600, 43200]  # adjusted shift timings
-  duration: 28800
+  - shift_name: morning_shift
+    start_time: 0
+    end_time: 480
+    staff_levels:
+      L1: 3
+      L2: 2
+      L3: 1
+
+  - shift_name: mid_shift
+    start_time: 480
+    end_time: 960
+    staff_levels:
+      L1: 6
+      L2: 4
+      L3: 2
+
+  - shift_name: night_shift
+    start_time: 960
+    end_time: 1440
+    staff_levels:
+      L1: 2
+      L2: 2
+      L3: 1
+
+incident_profile:
+  arrival_rate: 0.25  # incidents per minute
+  critical_ratio: 0.15
+  sla_targets:
+    L1: 30
+    L2: 45
+    L3: 60
