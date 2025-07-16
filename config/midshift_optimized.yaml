@@ -1,0 +1,9 @@
+simulation_duration: 86400
+incident_rate: 0.0015
+staffing:
+  L1: 4
+  L2: 4
+  L3: 3
+shift_schedule:
+  start: [0, 21600, 43200]  # adjusted shift timings
+  duration: 28800
