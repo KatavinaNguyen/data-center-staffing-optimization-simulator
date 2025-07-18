@@ -1,5 +1,5 @@
 # Data Center Staffing Optimization Simulator
-In critical infrastructure environments like data centers, incident response performance directly impacts system reliability, uptime, and contract compliance. Staffing decisions — including how many engineers are on shift, what roles they fill, and how incidents are escalated — significantly influence SLA adherence and operational efficiency. But testing these decisions in live systems carries risk.
+> In critical infrastructure environments like data centers, incident response performance directly impacts system reliability, uptime, and contract compliance. Staffing decisions, including how many engineers are on shift, what roles they fill, and how incidents are escalated, significantly influence SLA adherence and operational efficiency. But testing these decisions in live systems carries risk.
 
 This simulator provides a safe and configurable environment to evaluate those tradeoffs. It uses discrete-event simulation to model real-world conditions: incoming incidents, SLA windows, shift schedules, and triage rules. By simulating thousands of incidents across different staffing strategies, teams can analyze the impact on key metrics before making operational changes.
 
