@@ -1,39 +1,29 @@
 # Data Center Staffing Optimization Simulator
-In large-scale critical infrastructure environments like data centers, incident response efficiency directly determines operational success. Decisions about staffing, scheduling, and task delegation directly affect complying with SLAs, reducing operational costs, and minimizing downtime, but these decisions are rarely straightforward.
+In critical infrastructure environments like data centers, incident response performance directly impacts system reliability, uptime, and contract compliance. Staffing decisions — including how many engineers are on shift, what roles they fill, and how incidents are escalated — significantly influence SLA adherence and operational efficiency. But testing these decisions in live systems carries risk.
 
-1. **SLA compliance is contractually critical** - missing targets can mean broken client agreements and financial penalties.
-2. **Overstaffing is expensive, while understaffing is risky** - the cost of inefficiency compounds at scale.
-3. **Scheduling affects downtime, ticket backlog, and average incident resolution time** - all operational KPIs that impact overall system reliability.
-4. **Triage rules and engineer role definitions** directly impact how fast incidents are resolved.
-5. **These decisions must be data-driven to scale** - especially in environments with thousands of incidents daily. 
+This simulator provides a safe and configurable environment to evaluate those tradeoffs. It uses discrete-event simulation to model real-world conditions: incoming incidents, SLA windows, shift schedules, and triage rules. By simulating thousands of incidents across different staffing strategies, teams can analyze the impact on key metrics before making operational changes.
 
-This project simulates those tradeoffs in a configurable environment, using discrete-event simulation to answer questions like:
-- Can we hit 99% SLA with fewer resources if we reassign staff during peak hours?
-- How many L1 vs. L2 engineers do we actually need per shift?
-- What does our incident queue look like under different shift rotations or escalation rules?
-
-Whether you're planning staffing for a 24/7 Network Operation Center or evaluating cost-saving strategies in a data center, this simulator helps test “what-if” scenarios and find operational sweet spots before changes go live.
+**Key Use Cases**:
+- Determine the minimum staffing needed to meet SLA targets
+- Compare L1/L2/L3 staffing ratios under different incident loads
+- Test how escalation rules affect resolution time and backlog
+- Explore cost-saving strategies without compromising service reliability
 
 ## Overview
-This simulator evaluates how staffing decisions affect incident response performance in large-scale data center environments.
+The simulator models a continuous stream of incidents, each defined by severity, SLA deadline, and required engineer tier. Incidents are routed to available engineers based on:
+- Engineer headcount by level (L1-L3) and shift
+- SLA thresholds by severity
+- Routing and escalation logic
+- Incident arrival patterns and volume distributions
 
-It models a stream of incoming incidents—each with a severity level, SLA deadline, and required engineer tier (L1–L3)—and routes them to available engineers based on shift schedules, triage logic, and escalation rules.
+At the end of each simulation run, the tool outputs:
+- SLA compliance rates by severity level
+- Average resolution time by incident type
+- Engineer utilization rates
+- Queue backlog at shift boundaries
+- Visualizations of system performance over time
 
-Users configure input parameters like:
-- Number of engineers per level and shift
-- Shift start/end times and overlaps
-- SLA time windows by severity level
-- Routing logic (e.g., L1-only for low priority, escalate on timeout)
-- Total incident volume and arrival rate distributions
-
-Each simulation run produces:
-- SLA compliance rate by severity
-- Average resolution time per incident type
-- Engineer utilization metrics
-- Total backlog at shift handoffs
-- Visualizations of queues, handoffs, and performance trends
-
-Each simulation generates metrics like SLA coverage, resolution time, engineer utilization, and queue backlog—allowing teams to evaluate tradeoffs before making changes live. By modeling thousands of incidents under different staffing strategies, the simulator helps NOC and SRE teams improve reliability, reduce costs, and prevent service degradation without real-world risk.
+By simulating thousands of incidents under different staffing models, teams can assess the operational impact of proposed changes before implementation, helping avoid SLA breaches, reduce excess headcount, and improve reliability.
 
 ## Installation
 1. **Clone the Repository**
@@ -61,7 +51,7 @@ Before running a simulation, you can adjust the input parameters to match your e
 
 **← KEY CONFIGURABLE PARAMETERS →**
 
-Each config file defines how incidents are generated, how engineers are scheduled, and how routing decisions are made:
+Each config file defines how incidents are generated, how engineers are scheduled, and how routing decisions are made.
 
 `engineers:`
 Number of L1, L2, and L3 engineers per shift.
